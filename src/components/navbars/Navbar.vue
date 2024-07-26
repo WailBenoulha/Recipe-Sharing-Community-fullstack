@@ -8,7 +8,7 @@ const user = ref(null)
 
 <template>
   <nav class="navbar navbar-expand-lg w-100 mt-4 fw-bold ">
-    <div class="container-lg">
+    <div class="container-xl">
       <a class="navbar-brand" href="#"
         ><img src="/png/logo-no-background.png" alt="foodie logo" width="180" height="50"
       /></a>
@@ -29,7 +29,7 @@ const user = ref(null)
             <router-link :to="{name:'home'}" class="nav-link">Home</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Recipies</a>
+            <router-link :to="{name:'home'}" class="nav-link">Recipes</router-link>
           </li>
 
           <li class="nav-item">
@@ -42,7 +42,7 @@ const user = ref(null)
         </ul>
 
         <form class="d-flex" role="search">
-          <a href="#"><button class="btn bg-primary text-white fw-bold" type="button">Upload your recipe NOW !</button></a>
+          <router-link :to="{name:'recipe-upload'}"><button class="btn bg-primary text-white fw-bold" type="button">Upload your recipe NOW !</button></router-link> 
         </form>
         <li v-if="user" class="nav-item dropdown profile-avatar">
           <a
@@ -74,6 +74,25 @@ const user = ref(null)
 .navbar{
   font-size: 1.2rem;
   font-weight: bold;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+
+}
+
+.navbar::before{
+  /*overlay*/
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 0;
+  width: 100%;
+  height: 150%;
+  background-color: black;
+  z-index: -1;
+  opacity: .25;
 }
 
 .navbar-nav li a {

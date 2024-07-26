@@ -13,7 +13,6 @@
 <style scoped>
 
 .hero {
-
     display: flex;
     justify-content: center;
 flex-direction: column;

@@ -10,23 +10,20 @@
       
     </section>
 
-    <section class="position-relative page-content ">
+    <section class=" page-content ">
       <slot
         name="page-content"
       ></slot>
     </section>
+
   </div>
+  <footer>
+    <slot name="footer"></slot>
+  </footer>
 </template>
 
 <style scoped>
 
-.page-heading{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1;
-}
 
 .page-content{
   background-color: #f8f9fa;
