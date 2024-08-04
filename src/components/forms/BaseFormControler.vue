@@ -1,47 +1,48 @@
 <template>
-  <div class="mb-3">
-    <label :for="id" class="form-label fw-bold">{{ label }}</label>
-    <component
-      :is="elementType"
-      v-bind="attrs"
-      :class="['form-control', { 'is-invalid': invalid }]"
-    >
-      <slot></slot>
-    </component>
-  </div>
+  <input
+    v-if="elementType === 'input'"
+    :id="id"
+    class="form-control"
+    @input="emit('update:modelValue', $event.target.value)"
+  />
+  <select
+    v-else-if="elementType === 'select'"
+    :id="id"
+    class="form-control"
+    @input="emit('update:modelValue', $event.target.value)"
+  >
+    <slot></slot>
+  </select>
+  <textarea
+    v-else-if="elementType === 'textarea'"
+    :id="id"
+    class="form-control"
+    @input="emit('update:modelValue', $event.target.value)"
+  ></textarea>
 </template>
 
-<script>
-export default {
-  name: 'BaseFormControler',
-  props: {
-    id: {
-      type: String,
-      required: true
-    },
-    label: {
-      type: String,
-      required: true
-    },
-    elementType: {
-      type: String,
-      default: 'input' // could be 'input', 'textarea', 'select', etc.
-    },
-    attrs: {
-      type: Object,
-      default: () => ({})
-    },
-    invalid: {
-      type: Boolean,
-      default: false
-    }
-  }
-};
+<script setup>
+
+import { ref, computed } from "vue";
+
+const emit = defineEmits(['update:modelValue']);
+
+const props = defineProps({
+  id: String,
+  label: String,
+  elementType: String,
+  attrs: Object,
+  modelValue: String,
+});
+
+
+
 </script>
 
 <style scoped>
   .form-control {
     width: 100%;
+    height: 3rem;
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -49,7 +50,7 @@ export default {
     background-color: #dfdfdf;
     background-clip: padding-box;
     border: none;
-    border-radius: 0.25rem;
+    border-radius: 0.3rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
 

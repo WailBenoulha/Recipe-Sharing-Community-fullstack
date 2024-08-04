@@ -1,6 +1,3 @@
-<script setup >;
-
-</script>
 
 <template>
   <div class="">
@@ -17,9 +14,7 @@
     </section>
 
   </div>
-  <footer>
-    <slot name="footer"></slot>
-  </footer>
+
 </template>
 
 <style scoped>
@@ -31,7 +26,6 @@
   z-index: 0;
   position: relative;
 }
-
 
 
 </style>

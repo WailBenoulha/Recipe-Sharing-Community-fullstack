@@ -7,13 +7,13 @@ const user = ref(null)
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg w-100 mt-4 fw-bold ">
-    <div class="container-xl">
-      <a class="navbar-brand" href="#"
+  <nav class="navbar navbar-expand-xl w-100 mt-4 fw-bold ">
+    <div class="container-lg">
+      <router-link :to="{name:'home'}" class="navbar-brand"
         ><img src="/png/logo-no-background.png" alt="foodie logo" width="180" height="50"
-      /></a>
+      /></router-link>
       <button
-        class="navbar-toggler"
+        class="navbar-toggler bg-primary"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarSupportedContent"
@@ -29,7 +29,7 @@ const user = ref(null)
             <router-link :to="{name:'home'}" class="nav-link">Home</router-link>
           </li>
           <li class="nav-item">
-            <router-link :to="{name:'home'}" class="nav-link">Recipes</router-link>
+            <router-link :to="{name:'recipes'}" class="nav-link">Recipes</router-link>
           </li>
 
           <li class="nav-item">
@@ -37,7 +37,7 @@ const user = ref(null)
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
+            <router-link :to="{name:'contact'}" class="nav-link">Contact Us</router-link>
           </li>
         </ul>
 
@@ -61,7 +61,7 @@ const user = ref(null)
             <li><a class="dropdown-item" href="#">Logout</a></li>
           </ul>
         </li>
-        <li v-else>
+        <li  v-else>
         <button class="p-2 ms-4 btn login-btn border-2- border-primary " ><a class="text-white  fw-bold" href="#">Login</a></button>
         </li>
       </div>
@@ -80,6 +80,10 @@ const user = ref(null)
   width: 100%;
   z-index: 2;
 
+}
+
+li{
+  list-style: none;
 }
 
 .navbar::before{

@@ -30,7 +30,7 @@ flex-direction: column;
 }
 
 .card-img {
-    min-height: 35rem;
+    min-height: 18rem;
     object-fit: cover;
     background: #000;
     background-blend-mode: screen;
@@ -46,7 +46,5 @@ input {
 input:focus {
     outline: none;
 }
-
-
 
 </style>

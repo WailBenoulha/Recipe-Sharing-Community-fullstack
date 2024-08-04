@@ -23,3 +23,14 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+  .btn {
+  border: none;
+  padding: .5rem;
+  }
+
+
+
+
+</style>

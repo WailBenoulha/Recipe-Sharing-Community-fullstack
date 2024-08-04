@@ -26,7 +26,7 @@ import Hero from '../components/hero/Hero.vue'
               aria-describedby="button-addon2"
             />
             <button
-              class="btn bg-primary fw-bold"
+              class="btn bg-primary fw-bold p-2"
               type="submit"
               id="button-addon2"
             >
