@@ -59,22 +59,28 @@
         </div>
 
         <!-- Duration-->
-        <div class="duration">
-          <h2 class="fw-bold">Duration</h2>
+        <div class="duration my-2">
+          <h2 class="fw-bold">
+            <i class="bi bi-clock fs-4"></i>
+            Duration</h2>
           <p>{{ cookingDuration }} mins</p>
         </div>
         <!-- Ingredients bullets-->
         <div class="ingredients">
-          <h2 class="fw-bold">Ingredients</h2>
+          <h2 class="fw-bold">
+            <i class="bi bi-basket2 fs-4"></i>
+            Ingredients</h2>
           <ul>
-            <li v-for="ingredient in ingredients" :key="ingredient">
+            <li class="mb-3" v-for="ingredient in ingredients" :key="ingredient">
               {{ ingredient }}
             </li>
           </ul>
         </div>
         <!-- Instructions bullets-->
         <div class="instructions">
-          <h2 class="fw-bold">Instructions</h2>
+          <h2 class="fw-bold">
+            <i class="bi bi-book fs-4"></i>
+            Instructions</h2>
           <ul>
             <li
               v-for="instruction in instructions"
@@ -87,41 +93,61 @@
         </div>
 
         <!-- Ratings -->
-        <h4>User Ratings</h4>
-        <div class="row ratings align-items-center">
-          <div class="col-12 col-md-3 mb-3 avrage-ratings">
-            <h5>{{ avrageRating }}</h5>
-            <div class="ratings">
-              <span
-                v-for="star in 5"
-                :key="star"
-                class="star"
-                :class="{ filled: star <= avrageRating }"
-                >&#9733;</span
-              >
-            </div>
-            <p>{{ totalReviews }} reviews</p>
-          </div>
-          <ul class="progress col-12 col-md-3 flex-column h-50 bg-transparent">
-            <div
-              v-for="(progress, index) in progresses"
-              :key="index"
-              class="progress my-2"
-            >
-            <span class="text-primary ">{{ index + 1 }}</span>
-              <div
-                class="progress-bar bg-secondary position-relative"
-                role="progressbar"
-                :style="{ width: progress.value + '%' }"
-                :aria-valuenow="progress.value"
-                aria-valuemin="0"
-                aria-valuemax="100"
-              >
-                {{ progress.value }}%
+        <h2 class="fw-bold ">
+          <i class="bi bi-star fs-4 "></i>
+          User Ratings</h2>
+        <div class="row ratings align-items-center ">
+          <div class="col-12 col-md-3 mb-3 avrage-ratings ">
+           <div class="text-center d-inline-block">
+              <h5 >{{ avrageRating }}</h5>
+              <div class="ratings">
+                <span
+                  v-for="star in 5"
+                  :key="star"
+                  class="star"
+                  :class="{ filled: star <= avrageRating }"
+                  >&#9733;</span
+                >
               </div>
-            </div>
+              <p>{{ totalReviews }} reviews</p>
+           </div>
+          </div>
+          <ul class="progress col-12 col-md-4 flex-column h-50 bg-transparent">
+       
+          <Progressbar     v-for="(progress, index) in progresses"
+              :key="index" :progress="progress" :index="index" />
+          
           </ul>
         </div>
+
+        <!-- Add review -->
+        <div class="add-review">
+          <h2 class="fw-bold">Add Review</h2>
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Your review"
+              aria-label="Your review"
+              aria-describedby="button-addon2"
+            />
+            <button
+              class="btn bg-primary fw-bold p-2"
+              type="submit"
+              id="button-addon2"
+            >
+              <i class="bi bi-chat-right-text"></i>
+              Add Review
+            </button>
+          </div>
+        </div>
+
+        <!-- Reviews -->
+        <TestimonialCard
+          v-for="rating in ratings"
+          :key="rating"
+          :rating="rating"
+        />
       </main>
     </template>
   </HomePageLayout>
@@ -131,8 +157,9 @@
 import HomePageLayout from "@/components/layouts/HomePageLayout.vue";
 import Navbar from "@/components/navbars/Navbar.vue";
 import HeroSearch from "@/components/hero/HeroSearch.vue";
-import BaseForm from "@/components/forms/BaseForm.vue";
 import BaseButton from "@/components/buttons/BaseButton.vue";
+import Progressbar from "@/components/progressbar/Progressbar.vue";
+import TestimonialCard from "@/components/cards/TestimonialCard.vue";
 
 import { ref } from "vue";
 
@@ -203,5 +230,13 @@ const progresses = ref([
   height: 3rem;
   background-color: #ccc;
   margin-right: 5px;
+}
+
+@media screen and (max-width: 768px) {
+ .ratings{
+    display: flex;
+    justify-content: center;
+ }
+  
 }
 </style>

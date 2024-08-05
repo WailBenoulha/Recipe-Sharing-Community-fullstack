@@ -43,14 +43,14 @@
         <option value="glutenFree">Gluten-Free</option>
       </select>
     </div>
-    <i  class="bi bi-bookmark save-icon"></i>
+    
         <!-- Search Results -->
         <div class="results">
           <div v-if="recipes.length === 0">No results found</div>
           <div class="recipes-container" v-else>
             <div class="row container-sm">
               <div class="col col-md-6 col-lg-4 col-xxl-3" v-for="recipe in recipes" :key="recipe.id  ">
-            <router-link :to="{ name: 'recipe', params: { id: recipe.id } }">
+           
                   <BaseCard
                   class="card"
                     :recipeTitle="recipe.title"
@@ -59,9 +59,9 @@
                     :stars="recipe.rating"
                     :recipeRating="recipe.rating"
                     :cookingDuration= "recipe.duration"
-                    
+                    :to="{ name: 'recipe', params: { id: recipe.id }}"
                   />
-            </router-link>
+
               </div>
             </div>
           </div>
@@ -166,9 +166,7 @@ watch([searchQuery, filters], () => {
 <style scoped>
 /* Your custom styles */
 
-a:hover{
- background-color: transparent;
-}
+
 
 .recipes-cards {
   display: grid;
@@ -185,11 +183,6 @@ a:hover{
 }
 
 
-.save-icon {
-  font-size: 50rem;
-  width: 100px;
-  height: 100px;
-  color: #000;
-}
+
 
 </style>
