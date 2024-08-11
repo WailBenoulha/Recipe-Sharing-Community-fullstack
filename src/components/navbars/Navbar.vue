@@ -113,4 +113,8 @@ li{
   color: white;
 }
 
+a:hover{
+ background-color: transparent;
+}
+
 </style>

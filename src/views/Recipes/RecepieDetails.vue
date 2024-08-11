@@ -8,8 +8,8 @@
         <template #overlay-content>
           <div class="overlay-content">
             <!--recipe details-->
-            <h1>{{ recipieTitle }}</h1>
-            <p>{{ recipieDescription }}</p>
+            <h1>{{ recipieStore.recipie.title }}</h1>
+            <p>{{ recipieStore.recipie.description }}</p>
             <!--Save recipe btn-->
             <BaseButton
               class="btn bg-primary fw-bold p-2"
@@ -29,13 +29,13 @@
         <div id="carouselExample" class="carousel slide">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="/public/hero.jpg" class="d-block w-100" alt="..." />
+              <img src="/hero.jpg" class="d-block w-100" alt="..." />
             </div>
             <div class="carousel-item">
-              <img src="/public/hero.jpg" class="d-block w-100" alt="..." />
+              <img src="/hero.jpg" class="d-block w-100" alt="..." />
             </div>
             <div class="carousel-item">
-              <img src="/public/hero.jpg" class="d-block w-100" alt="..." />
+              <img src="/hero.jpg" class="d-block w-100" alt="..." />
             </div>
           </div>
           <button
@@ -63,7 +63,7 @@
           <h2 class="fw-bold">
             <i class="bi bi-clock fs-4"></i>
             Duration</h2>
-          <p>{{ cookingDuration }} mins</p>
+          <p>{{ recipieStore.recipie.duration }}</p>
         </div>
         <!-- Ingredients bullets-->
         <div class="ingredients">
@@ -162,43 +162,21 @@ import Progressbar from "@/components/progressbar/Progressbar.vue";
 import TestimonialCard from "@/components/cards/TestimonialCard.vue";
 
 import { ref } from "vue";
+import { useRecipesStore
 
-const recipieTitle = ref("Chicken Salad");
-const recipieDescription = ref("A delicious chicken salad recipe");
-const cookingDuration = ref(30);
-const ingredients = ref([
-  "1 cup of chicken",
-  "1 cup of lettuce",
-  "1 cup of tomatoes",
-  "1 cup of cucumbers",
-  "1 cup of carrots",
-  "1 cup of onions",
-  "1 cup of bell peppers",
-  "1 cup of salad dressing",
-]);
-const instructions = ref([
-  " Cut the chicken into small pieces",
-  " Mix the chicken with the salad dressing",
-  " Add the vegetables and mix well",
-  " Serve and enjoy!",
-]);
+ } from "@/stores/recipes";
 
-const saveToFavorite = () => {
-  // Implement save to favorite logic here
-  console.log("Recipe saved to favorite");
-};
+const recipieStore = useRecipesStore();
 
-const avrageRating = ref(4);
-const totalReviews = ref(100);
-const ratings = ref([20, 30, 10, 15, 25]);
-const percent = ref(50);
-const progresses = ref([
-  { value: 20 },
-  { value: 30 },
-  { value: 10 },
-  { value: 15 },
-  { value: 25 },
-]);
+const ingredients = ref(recipieStore.recipie.ingredients);
+const instructions = ref(recipieStore.recipie.instructions);
+const avrageRating = ref(recipieStore.recipie.avrageRating);
+const totalReviews = ref(recipieStore.recipie.totalReviews);
+const progresses = ref(recipieStore.recipie.progresses);
+const ratings = ref(recipieStore.recipie.ratings);
+
+
+
 </script>
 
 <style scoped>

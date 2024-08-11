@@ -49,7 +49,7 @@
           <div v-if="recipes.length === 0">No results found</div>
           <div class="recipes-container" v-else>
             <div class="row container-sm">
-              <div class="col col-md-6 col-lg-4 col-xxl-3" v-for="recipe in recipes" :key="recipe.id  ">
+              <div class="col col-md-6 col-lg-4 col-xxl-3" v-for="recipe in recipesStore.recipes" :key="recipe.id">
            
                   <BaseCard
                   class="card"
@@ -81,6 +81,9 @@ import HeroSearch from "@/components/hero/HeroSearch.vue";
 import { ref, watch } from "vue";
 import BaseForm from "@/components/forms/BaseForm.vue";
 import BaseButton from "@/components/buttons/BaseButton.vue";
+import { useRecipesStore } from "@/stores/recipes";
+
+const recipesStore = useRecipesStore();
 
 const filters = ref({
   vegetarian: false,
@@ -90,57 +93,7 @@ const filters = ref({
 
 const searchQuery = ref("");
 
-const recipes = [
-  {
-    id: 1,
-    title: "Chicken Salad",
-    description: "A delicious chicken salad recipe",
-    owner: "John Doe",
-    rating: 4,
-    img: "https://cdn.quasar.dev/img/chicken-salad.jpg",
-    duration: 30,
-  },
-  {
-    id: 2,
-    title: "Vegetable Stir Fry",
-    description: "A delicious vegetable stir fry recipe",
-    owner: "Jane Doe",
-    rating: 5,
-    img: "https://cdn.quasar.dev/img/vegetable-stir-fry.jpg",
-    duration: 30,
 
-  },
-  {
-    id: 3,
-    title: "Vegan Pizza",
-    description: "A delicious vegan pizza recipe",
-    owner: "John Smith",
-    rating: 3,
-    img: "https://cdn.quasar.dev/img/vegan-pizza.jpg",
-    duration: 30,
-
-  },
-  {
-    id: 4,
-    title: "Gluten-Free Pancakes",
-    description: "A delicious gluten-free pancake recipe",
-    owner: "Jane Smith",
-    rating: 4,
-    img: "https://cdn.quasar.dev/img/gluten-free-pancakes.jpg",
-    duration: 30,
-
-  },
-  {
-    id: 5,
-    title: "Vegan Tacos",
-    description: "A delicious vegan taco recipe",
-    owner: "John Doe",
-    rating: 5,
-    img: "https://cdn.quasar.dev/img/vegan-tacos.jpg",
-    duration: 30,
-
-  },
-];
 
 const searchRecipes = () => {
   // Your search logic here

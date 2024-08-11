@@ -7,6 +7,12 @@ import BaseButton from "@/components/buttons/BaseButton.vue";
 import BaseForm from "@/components/forms/BaseForm.vue";
 import BaseFormControler from "@/components/forms/BaseFormControler.vue";
 import BaseLabel from "@/components/labels/BaseLabel.vue";
+import { useRecipesStore
+ } from "@/stores/recipes";
+
+cons recipieStore = useRecipesStore();
+
+
 
 const handleFormSubmit = () => {
   console.log("Form submitted with data:", {
@@ -18,9 +24,10 @@ const handleFormSubmit = () => {
 };
 
 const title = ref("");
-const ingredients = ref<string[]>([""]);
-const instructions = ref<string[]>([""]);
+const ingredients = ref([""]);
+const instructions = ref([""]);
 const category = ref("");
+
 
 const addIngredient = () => {
   ingredients.value.push("");
@@ -29,6 +36,8 @@ const addIngredient = () => {
 const addInstruction = () => {
   instructions.value.push("");
 };
+
+
 </script>
 
 <template>

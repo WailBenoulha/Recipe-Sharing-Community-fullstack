@@ -19,20 +19,20 @@ import Hero from "../components/hero/Hero.vue";
       </Hero>
 
       <section class="container text-black my-5">
-        <h2 class="text-center">Our Story</h2>
+        <h2 class="text-center fw-bold">Our Story</h2>
         <p class="text-center fs-5">
-          Welcome to Foodie, your ultimate destination for discovering, sharing,
+          Welcome to Tiabi, your ultimate destination for discovering, sharing,
           and indulging in culinary delights! At Foodie, we believe that food is
           more than just sustenance; it's a universal language that brings
           people together, tells stories, and creates unforgettable experiences.
           Our mission is to inspire food enthusiasts of all levels to explore
-          the world of cooking and baking. Whether you're a seasoned chef or
+          the world of cooking and baking. <br>Whether you're a seasoned chef or
           just starting in the kitchen, Foodie offers a diverse collection of
           recipes, tips, and culinary insights to help you create delicious
           meals and treats. From quick weeknight dinners to gourmet delicacies,
           our curated selection of recipes caters to every taste and occasion.
           We pride ourselves on featuring authentic, easy-to-follow recipes that
-          celebrate flavors from around the world. Our passionate team of food
+          celebrate flavors from around the world.<br> Our passionate team of food
           lovers and professional chefs works tirelessly to test and perfect
           each recipe, ensuring that you get the best results every time. Join
           us on this gastronomic journey and become a part of our vibrant
