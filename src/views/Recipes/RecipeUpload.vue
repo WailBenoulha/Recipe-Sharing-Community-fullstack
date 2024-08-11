@@ -10,7 +10,7 @@ import BaseLabel from "@/components/labels/BaseLabel.vue";
 import { useRecipesStore
  } from "@/stores/recipes";
 
-cons recipieStore = useRecipesStore();
+// cons recipieStore = useRecipesStore();
 
 
 
